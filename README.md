@@ -18,5 +18,4 @@ Then, run the code below, which will generate predicted probabilities.
 cd ./src/
 python predict.py New
 ```
-### contact
-Kang Xiao: xiaokangneuq@163.com
+
