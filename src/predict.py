@@ -6,15 +6,10 @@ from itertools import product
 from lightgbm import LGBMClassifier
 from sklearn.metrics import confusion_matrix 
 
-def calculate_metric(gt, pred): 
-    pred[pred>0.5]=1
-    pred[pred<1]=0
-    confusion = confusion_matrix(gt,pred)
-    TP = confusion[1, 1]
-    TN = confusion[0, 0]
-    FP = confusion[0, 1]
-    FN = confusion[1, 0]
-    return TN / float(TN+FP)
+def calculate_specificity(y_true, y_pred): 
+    tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+    specificity = tn / (tn + fp)
+    return specificity
 
 AA = 'ACDEFGHIKLMNPQRSTVWY'
 maxlen = 50
@@ -160,6 +155,6 @@ if in_file == 'New':
     print(LGBM.predict_proba(np.array(test_X))[:,1])
 else:
     print('Sn:',"{:.4f}".format(metrics.recall_score(test_y,resample_pred)))
-    print('Sp:',"{:.4f}".format(calculate_metric(test_y, resample_pred)))
+    print('Sp:',"{:.4f}".format(calculate_specificity(test_y, resample_pred)))
     print('MCC:',"{:.2f}".format(metrics.matthews_corrcoef(test_y,resample_pred)))
     print('Acc:',"{:.4f}".format(metrics.accuracy_score(test_y,resample_pred)))
