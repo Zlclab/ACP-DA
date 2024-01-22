@@ -6,11 +6,6 @@ from itertools import product
 from lightgbm import LGBMClassifier
 from sklearn.metrics import confusion_matrix 
 
-def calculate_specificity(y_true, y_pred): 
-    tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
-    specificity = tn / (tn + fp)
-    return specificity
-
 AA = 'ACDEFGHIKLMNPQRSTVWY'
 maxlen = 50
 
@@ -38,7 +33,6 @@ def Kmers_funct(seq, size):
 def OE(seq_list):
     oe = {'A': 1,'C': 2,'D': 3,'E': 4,'F': 5,'G': 6,'H': 7,'I': 8,'K': 9,'L': 10,'M': 11,
           'N': 12,'P': 13,'Q': 14,'R': 15,'S': 16,'T': 17,'V': 18,'W': 19,'Y': 20}
-    
     result = []
     for i in range(len(seq_list)):
         m = []
@@ -50,7 +44,6 @@ def OE(seq_list):
 ############################################Amino acid composition (20D)
 
 def AAC(seq_list):
-    
     result = []
     for i in range(len(seq_list)):
         m = [0] * len(AA)
@@ -140,10 +133,15 @@ def GTEC(seq_list):
 
 #Read the file, train the model and test on independent sets
 
+def calculate_specificity(y_true, y_pred): 
+    tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+    specificity = tn / (tn + fp)
+    return specificity
+    
 in_file = sys.argv[1]  
 
-train_seq, train_y= Prepare_data('..\\data_cashe\\ACP20mainTrain.fasta')
-test_seq, test_y = Prepare_data('..\\data_cashe\\'+'ACP20main'+in_file+'.fasta')
+train_seq, train_y= Prepare_data('ACP20mainTrain.fasta')
+test_seq, test_y = Prepare_data('ACP20main'+in_file+'.fasta')
 
 train_X = np.c_[OE(train_seq),AAC(train_seq),DPC(train_seq),GTEC(train_seq)]
 test_X = np.c_[OE(test_seq),AAC(test_seq),DPC(test_seq),GTEC(test_seq)]
