@@ -1,4 +1,6 @@
-### Effective identification and differential analysis of anticancer peptides. https://doi.org/10.1016/j.biosystems.2024.105246 
+### Effective identification and differential analysis of anticancer peptides. 
+
+https://doi.org/10.1016/j.biosystems.2024.105246 
 
 The peptides sequence and labels can be found in .fasta type files
 The codes are available in predict.py
