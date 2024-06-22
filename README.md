@@ -1,4 +1,4 @@
-### Effective identification and differential analysis of anticancer peptides. 
+### L. Zhang, X. Hu, K. Xiao, L. Kong, Effective identification and differential analysis of anticancer peptides, #_BioSystems_#, (2024) 105246.
 
 https://doi.org/10.1016/j.biosystems.2024.105246 
 
