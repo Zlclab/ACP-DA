@@ -1,4 +1,4 @@
-L. Zhang, X. Hu, K. Xiao, L. Kong, "Effective identification and differential analysis of anticancer peptides," *BioSystems*, 2024; 241: 105246. [https://doi.org/10.1016/j.biosystems.2024.105246](https://doi.org/10.1016/j.biosystems.2024.105246)
+L. Zhang, X. Hu, K. Xiao, L. Kong, "Effective identification and differential analysis of anticancer peptides" *BioSystems*, 2024; 241: 105246. [https://doi.org/10.1016/j.biosystems.2024.105246](https://doi.org/10.1016/j.biosystems.2024.105246)
 
 The peptides sequence and labels can be found in .fasta type files
 The codes are available in predict.py
